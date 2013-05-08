@@ -10,8 +10,10 @@
 
 @interface ViewController : UIViewController
 
-@property (nonatomic, strong) UIPopoverController *createPopover;
-- (IBAction)createButtonPressed:(id)sender;
+@property (strong, nonatomic) IBOutlet UINavigationBar *navBar;
+@property (strong, nonatomic) IBOutlet UINavigationItem *settingsbtn;
+
+@property (strong, nonatomic) IBOutlet UIButton *navigationButton;
 
 
 @end

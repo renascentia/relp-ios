@@ -17,6 +17,9 @@
 
 @implementation ViewController
 
+@synthesize navigationButton;
+@synthesize settingsbtn;
+@synthesize navBar;
 
 - (void)viewDidLoad
 {
@@ -67,23 +70,31 @@
     
     // Custom buttons
     
-    UIImage *buttonBlue = [[UIImage imageNamed:@"buttonBlue"]
-                         resizableImageWithCapInsets:UIEdgeInsetsMake(0, 7, 0, 7)];
-    [[UIBarButtonItem appearance] setBackgroundImage:buttonBlue forState:UIControlStateNormal
-                                          barMetrics:UIBarMetricsDefault];
+//    UIImage *buttonBlue = [[UIImage imageNamed:@"buttonBlue"]
+//                         resizableImageWithCapInsets:UIEdgeInsetsMake(0, 7, 0, 7)];
+//    [[UIBarButtonItem appearance] setBackgroundImage:buttonBlue forState:UIControlStateNormal
+//                                          barMetrics:UIBarMetricsDefault];
+//    
+//    [[UIBarButtonItem appearance] setTitleTextAttributes:
+//     [NSDictionary dictionaryWithObjectsAndKeys:
+//      [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0],
+//      UITextAttributeTextColor,
+//      [UIColor colorWithRed:21.0/255.0 green:73.0/255.0 blue:237.0/255.0 alpha:1.0],
+//      UITextAttributeTextShadowColor,
+//      [NSValue valueWithUIOffset:UIOffsetMake(0, 1)],
+//      UITextAttributeTextShadowOffset,
+//      [UIFont fontWithName:@"Helvetica-bold" size:0.0],
+//      UITextAttributeFont,
+//      nil]
+//                                                forState:UIControlStateNormal];
     
-    [[UIBarButtonItem appearance] setTitleTextAttributes:
-     [NSDictionary dictionaryWithObjectsAndKeys:
-      [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0],
-      UITextAttributeTextColor,
-      [UIColor colorWithRed:21.0/255.0 green:73.0/255.0 blue:237.0/255.0 alpha:1.0],
-      UITextAttributeTextShadowColor,
-      [NSValue valueWithUIOffset:UIOffsetMake(0, 1)],
-      UITextAttributeTextShadowOffset,
-      [UIFont fontWithName:@"Helvetica-bold" size:0.0],
-      UITextAttributeFont,
-      nil]
-                                                forState:UIControlStateNormal];
+    navigationButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [navigationButton addTarget:self action:@selector(swithpages)   forControlEvents:UIControlEventTouchUpInside];
+    [navigationButton setImage:[UIImage imageNamed:@"navButtonAdd"]forState:UIControlStateNormal];
+    [navigationButton setFrame:CGRectMake(0, 0, 44, 44)];
+    UIBarButtonItem *settingsbutton = [[UIBarButtonItem alloc] initWithCustomView:navigationButton];
+    
+    settingsbtn.rightBarButtonItem = settingsbutton;
     
 }
 
